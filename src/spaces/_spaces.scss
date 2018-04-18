@@ -1,16 +1,21 @@
 .space {
   background-color: $govuk-grey-4;
-  border: $govuk-spacing-scale-2 solid $govuk-border-colour;
+  border: 1px solid $govuk-border-colour;
   margin: $govuk-spacing-scale-2 0;
   padding: $govuk-spacing-scale-2 0;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
   transition: background-color .1s ease;
 
   &:hover {
-    background-color: #fff;
+    border: 2px solid $govuk-blue;
   }
 
   h3 {
     margin: 0;
+    @include govuk-font-bold-24;
   }
 
   a {
@@ -37,6 +42,12 @@
   & + h2 {
     margin-top: $govuk-spacing-scale-6 * 3;
   }
+
+  .paas-caption {
+    display: block;
+    color: black;
+    @include govuk-font-regular-16;
+  }
 }
 
 table.space-overview {
@@ -44,4 +55,8 @@ table.space-overview {
     min-width: 280px;
     width: 35%;
   }
+}
+
+.space-information {
+  color: $govuk-text-colour;
 }

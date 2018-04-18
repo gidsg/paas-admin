@@ -59,46 +59,45 @@
 
   {% for space in spaces %}
     <div class="govuk-o-grid space">
+      <a href="{{ linkTo('admin.organizations.spaces.view', {organizationGUID: organization.metadata.guid, spaceGUID: space.metadata.guid}) }}" id="space-{{ space.metadata.guid }}">
       <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-        <h3 class="govuk-heading-m">
-          <span class="govuk-caption-m">
-            Space:
-          </span>
-
-          <a href="{{ linkTo('admin.organizations.spaces.view', {organizationGUID: organization.metadata.guid, spaceGUID: space.metadata.guid}) }}" id="space-{{ space.metadata.guid }}" class="govuk-link govuk-!-w-bold">
-            {{ space.entity.name }}
-          </a>
+        <h3>
+          <span class="paas-caption">Space:</span>
+          {{ space.entity.name }}
         </h3>
       </div>
-      
-      <div class="govuk-o-grid__item govuk-o-grid__item--one-third govuk-o-grid">
-        <div class="govuk-o-grid__item govuk-o-grid__item--full">
-          The space has {{ space.entity.apps | length }} apps:
+
+      <div class="space-information">
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-third govuk-o-grid">
+          <div class="govuk-o-grid__item govuk-o-grid__item--full">
+            The space has {{ space.entity.apps | length }} apps:
+          </div>
+
+          <div class="govuk-o-grid__item govuk-o-grid__item--one-half running">
+            {{ space.entity.running_apps | length }} running
+          </div>
+
+          <div class="govuk-o-grid__item govuk-o-grid__item--one-half stopped">
+            {{ space.entity.stopped_apps | length }} stopped
+          </div>
         </div>
 
-        <div class="govuk-o-grid__item govuk-o-grid__item--one-half running">
-          {{ space.entity.running_apps | length }} running
-        </div>
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-third govuk-o-grid">
+          <div class="govuk-o-grid__item govuk-o-grid__item--full">
+            Space memory allocated:
+          </div>
 
-        <div class="govuk-o-grid__item govuk-o-grid__item--one-half stopped">
-          {{ space.entity.stopped_apps | length }} stopped
+          <div class="govuk-o-grid__item govuk-o-grid__item--full">
+            {{ (space.entity.memory_allocated / 1024) | round(2) }}gb of
+            {% if space.entity.quota %}
+              {{ (space.entity.quota.memory_limit / 1024) | round(2) }}gb
+            {% else %}
+              no limit
+            {% endif %}
+          </div>
         </div>
       </div>
-
-      <div class="govuk-o-grid__item govuk-o-grid__item--one-third govuk-o-grid">
-        <div class="govuk-o-grid__item govuk-o-grid__item--full">
-          Space memory allocated:
-        </div>
-
-        <div class="govuk-o-grid__item govuk-o-grid__item--full">
-          {{ (space.entity.memory_allocated / 1024) | round(2) }}gb of 
-          {% if space.entity.quota %}
-            {{ (space.entity.quota.memory_limit / 1024) | round(2) }}gb
-          {% else %}
-            no limit
-          {% endif %}
-        </div>
-      </div>
+      </a>
     </div>
   {% endfor %}
 

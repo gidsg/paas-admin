@@ -1,4 +1,5 @@
 .space {
+  width: 100%;
   background-color: $govuk-grey-4;
   border: 1px solid $govuk-border-colour;
   margin: $govuk-spacing-scale-2 0;
@@ -8,12 +9,21 @@
   padding-right: 15px;
   padding-left: 15px;
   transition: background-color .1s ease;
+  text-align: left;
 
   &:hover {
     border: 2px solid $govuk-blue;
   }
 
-  ul {
+  .paas-space-entity{
+    @include govuk-font-bold-24;
+  }
+
+  th {
+    @include govuk-font-regular-16;
+  }
+
+  /*ul {
     list-style-type: none;
     margin: 0;
     padding-left: $govuk-spacing-scale-3;
@@ -29,7 +39,7 @@
   h3 {
     margin: 0;
     @include govuk-font-bold-24;
-  }
+  }*/
 
   a {
     text-decoration: none;
@@ -49,7 +59,6 @@
   }
 
   .stopped {
-    margin-left: $govuk-spacing-scale-3;
 
     &::before {
       background-color: $govuk-grey-2;

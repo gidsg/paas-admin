@@ -60,16 +60,16 @@
   <div class="govuk-o-grid">
   {% for space in spaces %}
       <a href="{{ linkTo('admin.organizations.spaces.view', {organizationGUID: organization.metadata.guid, spaceGUID: space.metadata.guid}) }}" id="space-{{ space.metadata.guid }}">
-        <table class="space">
+        <table class="govuk-o-grid__item--full space">
           <thead>
             <tr>
-              <th>
+              <th class="govuk-o-grid__item--one-third">
                 <span class="paas-caption">Space:</span>
               </th>
-              <th colspan="2">
+              <th colspan="2" class="govuk-o-grid__item--one-third">
                 The space has {{ space.entity.apps | length }} apps:
               </th>
-              <th>
+              <th class="govuk-o-grid__item--one-third">
                 Space memory allocated:
               </th>
             </tr>

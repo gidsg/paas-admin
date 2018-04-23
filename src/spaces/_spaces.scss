@@ -17,7 +17,7 @@
     border: 2px solid $govuk-blue;
   }
 
-  .paas-space-entity{
+  .paas-space-entity {
     @include govuk-font-bold-24;
   }
 
@@ -62,6 +62,33 @@
     display: block;
     color: black;
     @include govuk-font-regular-16;
+  }
+
+  .mobile-screen {
+    display: none;
+  }
+
+  .full-screen {
+    display: table-header-group;
+  }
+
+  @include mq($until: tablet) {
+    .full-screen {
+      display: none;
+    }
+
+    .mobile-screen {
+      display: block;
+    }
+    table, tbody, thead, th, tr, td {
+      display: block;
+    }
+    color: green;
+    background-color: pink;
+  }
+
+  .stopped {
+    padding-left: 0;
   }
 }
 

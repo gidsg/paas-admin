@@ -61,7 +61,7 @@
   {% for space in spaces %}
       <a href="{{ linkTo('admin.organizations.spaces.view', {organizationGUID: organization.metadata.guid, spaceGUID: space.metadata.guid}) }}" id="space-{{ space.metadata.guid }}">
         <table class="govuk-o-grid__item--full space">
-          <thead>
+          <thead class="full-screen">
             <tr>
               <th class="govuk-o-grid__item--one-third">
                 <span class="paas-caption">Space:</span>
@@ -76,15 +76,20 @@
           </thead>
           <tbody>
             <tr>
+              <th class="mobile-screen"><span class="paas-caption">Space:</span></th>
               <td class="paas-space-entity">
                 {{ space.entity.name }}
               </td>
+              <th class="mobile-screen" colspan="2">The space has {{ space.entity.apps | length }} apps:</th>
               <td class="running">
                 {{ space.entity.running_apps | length }} running
               </td>
               <td class="stopped">
                 {{ space.entity.stopped_apps | length }} stopped
               </td>
+              <th class="mobile-screen" class="govuk-o-grid__item--one-third">
+                Space memory allocated:
+              </th>
               <td>
                 {{ (space.entity.memory_allocated / 1024) | round(2) }}gb of
                 {% if space.entity.quota %}

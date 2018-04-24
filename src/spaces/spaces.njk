@@ -60,7 +60,7 @@
   <div class="govuk-o-grid">
   {% for space in spaces %}
       <a href="{{ linkTo('admin.organizations.spaces.view', {organizationGUID: organization.metadata.guid, spaceGUID: space.metadata.guid}) }}" id="space-{{ space.metadata.guid }}">
-        <table class="govuk-o-grid__item--full space">
+        <section class="govuk-o-grid__item--full space">
           <thead class="full-screen">
             <tr>
               <th class="govuk-o-grid__item--one-third">
@@ -100,7 +100,7 @@
               </td>
             </tr>
           <tbody>
-        </table>
+        </section>
       </a>
   {% endfor %}
   <div>

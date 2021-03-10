@@ -132,7 +132,6 @@ export function OrganizationsPage(
           <p className="govuk-body">
             <a
               href="https://packages.cloudfoundry.org/stable?release=redhat64&version=v7&source=github"
-              
               className="govuk-link"
             >
               Download the RedHat version [RPM] <span className="govuk-visually-hidden">installer file</span>
